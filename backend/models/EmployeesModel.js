@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes)=>{
             },
         },
         mobileNumber:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.BIGINT,
             allowNull:false,
             validate:{
                 notEmpty:true,
@@ -61,6 +61,9 @@ module.exports = (sequelize, DataTypes)=>{
             },
             defaultValue: "0",
         },
+        role:{
+            type:DataTypes.STRING,
+        }
 
     })
     return Employee;

@@ -4,7 +4,7 @@ const port = process.env.PORT || 4000
 const db = require("./models")
 const cors = require('cors');
 app.use(cors({
-    orgin:"http://localhost:4000/"
+    orgin:`http://localhost:/${port}`
 }))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
