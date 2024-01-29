@@ -10,13 +10,25 @@ const getRoute = asyncHandler(async(req,res) =>{
     })
 
 })
-const saveRoute = asyncHandler(async(req,res) =>{
-   
+// const addRoutes = asyncHandler(async(req,res)=>{
+
+// })
+
+
+
+const addRoute = asyncHandler(async(req,res) =>{
+    count = await Route.count()
         Route.create({
-            routeId:Route.findAndCountAll()+1,
-            startPoint:req.body.startpoint,
-            endPoint:req.body.endpoint,
+            routeId:count+1,
+            startPoint:req.body.start,
+            endPoint:req.body.end,
             distance:req.body.distance,
+            date:req.body.date,
+            time:req.body.time,
+            vehicleNumber:req.body.vehicleno,
+            vehicleModel:req.body.vehiclemodel,
+            seats:req.body.seats,
+
     
             
         }).then((route)=>{
@@ -24,9 +36,17 @@ const saveRoute = asyncHandler(async(req,res) =>{
         })
         
     })
-
+    const countRoute = asyncHandler(async(req,res) =>{
+   
+        
+            count = await Route.count()
+            console.log(count);
+    
+        
+    })
 module.exports={
     getRoute,
-    saveRoute
+   countRoute,
+    addRoute,
 
 }

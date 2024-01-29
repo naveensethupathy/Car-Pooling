@@ -29,6 +29,44 @@ module.exports = (sequelize, DataTypes)=>{
                 notEmpty:true,
             },
         },
+        date:{
+            type:DataTypes.DATE,
+            allowNull:false,
+            validate:{
+                notEmpty:true,
+            },
+        },
+        time:{
+            type:DataTypes.TIME,
+            allowNull:false,
+            validate:{
+                notEmpty:true,
+            },
+        },
+        vehicleModel:{
+            type:DataTypes.STRING,
+            allowNull:true,
+            validate:{
+                notEmpty:true,
+            },
+            defaultValue: "0",
+        },
+        vehicleNumber:{
+            type:DataTypes.STRING,
+            allowNull:true,
+            validate:{
+                notEmpty:true,
+            },
+            defaultValue: "0",
+        },
+        seats:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            validate:{
+                notEmpty:true,
+            },
+        },
+
 
     })
     return Route;

@@ -17,6 +17,8 @@ const saveEmployee = asyncHandler(async (req, res) => {
       mobileNumber: req.body.mobileNumber,
       password: req.body.pwd,
       role: req.body.role,
+      vehicleNumber:req.body.vehicleno,
+      vehicleModel:req.body.vehiclemodel
     }).then((employee) => {
       res.status(200).json(employee);
     });
