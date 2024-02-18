@@ -11,7 +11,9 @@ const getEmployee = asyncHandler(async (req, res) => {
 
 const saveEmployee = asyncHandler(async (req, res) => {
   if (req.body.pwd === req.body.cpwd) {
+    count = await Employee.count();
     Employee.create({
+      id:count+1,
       email: req.body.email,
       username: req.body.name,
       mobileNumber: req.body.mobileNumber,
@@ -63,10 +65,15 @@ const deleteEmployee = asyncHandler(async (req, res) => {
     },
   });
 });
+const getEmployeeByReg = asyncHandler(async (req, res) => {
+  const employee = await Employee.findOne({ where: { vehicleNumber: req.params.regno } });
 
+  res.status(200).json(employee)
+});
 module.exports = {
   saveEmployee,
   getEmployee,
   editEmployee,
-  deleteEmployee
+  deleteEmployee,
+  getEmployeeByReg,
 };
