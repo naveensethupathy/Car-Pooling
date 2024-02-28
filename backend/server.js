@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express()
 const port = process.env.PORT || 4000
+const dotenv = require('dotenv').config();
 const {errorHandler} = require('./middleware/errorMiddleware')
 const db = require("./models")
 const cors = require('cors');
+
 app.use(cors({
     orgin:`http://localhost:/${port}`
 }))

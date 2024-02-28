@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes)=>{
     const Customer = sequelize.define("Customer",{
-        // customerId:{
-        //     type:DataTypes.INTEGER,
-        //     allowNull:false,
-        //     validate:{
-        //         notEmpty:true,
-        //     },
-        // },
+        customerId:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            validate:{
+                notEmpty:true,
+            },
+        },
         customerName:{
             type:DataTypes.STRING,
             allowNull:false,

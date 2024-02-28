@@ -61,6 +61,10 @@ const getRouteByPlace = asyncHandler(async (req, res) => {
 });
 const editRoutes = asyncHandler(async (req, res) => {
   const route = await Route.findByPk(req.params.id);
+  if(Number(req.body.seats) > 4){
+    res.status(400)
+    throw new Error("Maximum seat allowed is only 4 and lesser")
+  }
   if (route === null) {
     console.log("Not found!");
   } else {
